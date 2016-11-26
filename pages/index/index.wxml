@@ -1,0 +1,11 @@
+<import src="../template/tabbar.wxml"/>
+<!--index.wxml-->
+<view class="container">
+    <view bindtap="bindViewTap" class="userinfo">
+        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </view>
+</view>
+<view class="footer">
+    <template is="tab-bar" data="{{ dataForTabbar }}"/>
+</view>
