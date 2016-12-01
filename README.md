@@ -25,6 +25,7 @@
 
     import {
        init,                    // 初始化组件及页面
+       Tabbar,                  // Tabbar是组件的事件注册中心
        setTabbarData            // 设置/更新 tabbar显示的数据
     } from "../template/tabbar";
 
@@ -52,6 +53,20 @@
     });
 
     setTabbarData(tabbarData);
+
+###### 文件内部：调用`Tabbar.addListener(fn)`函数增加tab的监听事件
+
+    /** Tabbar.addListener( fn )     增加监听事件
+      *       .removeListener( fn )  移除监听事件
+      *       .removeAll()           移除所有监听事件
+      *
+    */
+    Tabbar.addListener(function(ev) {
+        console.log(ev);
+        // ev.key === 'note'
+        // ev的key对应被点击的tab的title
+    });
+
 
 PS: 当然，可以通过 `git clone https://github.com/Jonham/weapp-component-tabbar.git` 命令，直接用 [微信开发者工具](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html) 打开目录即可预览。    
 

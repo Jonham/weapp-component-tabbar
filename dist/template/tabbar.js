@@ -3,48 +3,6 @@ let _page;
 let _isPageInited = false;
 let _dataForTabbar;
 
-const _Events = {
-    tap: [],
-};
-/**
-  * addListener(fn)
-  * removeListener(fn)
-  * removeAll()
-  *
-*/
-const Tabbar = {
-    addListener( fn ) {
-        if (typeof(fn) !== 'function') {
-            console.warn("Tabbar can only handle function. Tabbar.addListener() receive a non-function param.");
-            return false;
-        }
-        // 压入事件栈
-        _Events.tap.push(fn);
-        return true;
-    },
-    removeListener( fn ) {
-        if (typeof(fn) !== 'function') {
-            console.warn("Tabbar can only handle function. Tabbar.addListener() receive a non-function param.");
-            return false;
-        }
-        // 压入事件栈
-        let tempArr = [];
-        _Events.tap.forEach((item) => {
-            if (item !== fn) {
-                tempArr.push(item);
-            }
-        });
-        _Events.tap = tempArr;
-        return true;
-    },
-    removeAll() {
-        _Events.tap = [];
-    }
-};
-
-module.exports.Tabbar = Tabbar;
-
-
 export function init( params ) {
     // 统一处理页面的数据，合并用户数据跟tabbar组件的数据
 
@@ -54,6 +12,7 @@ export function init( params ) {
     } = params;
 
     // 默认的tabbar数据对象
+    // 默认使用template目录下的img文件夹里的图标文件
     let defaultTabbarData = [
         {
             iCount: 1, //未读数目
@@ -133,21 +92,9 @@ export function init( params ) {
         // 单击tab触发的函数
         onTabbarItemTap(ev) {
             let key = ev.currentTarget.dataset.key;
-
-            if (_Events.tap.length > 0) {
-                _Events.tap.forEach((item) => {
-                    let eventData = {
-                        key,
-                        eventKey: key
-                    };
-                    item(eventData);
-                });
-            } else {
-                // 如果没有注册事件，就自动增加事件
-                setCounts({
-                    key
-                });
-            }
+            setCounts({
+                key
+            });
         },
     };
 
@@ -181,6 +128,9 @@ export function setTabbarData( obj ) {
 
     return init;
 }
+
+
+
 
 /**
   * 辅助函数
