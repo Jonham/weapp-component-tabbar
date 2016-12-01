@@ -1,4 +1,6 @@
+<!-- 在需要的页面，引入wxml -->
 <import src="../template/tabbar.wxml"/>
+
 <!--index.wxml-->
 <view class="container">
     <view bindtap="bindViewTap" class="userinfo">
@@ -6,6 +8,6 @@
         <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </view>
 </view>
-<view class="footer">
-    <template is="tab-bar" data="{{ dataForTabbar }}"/>
-</view>
+
+<!-- 直接引入 -->
+<template is="tab-bar" data="{{ jhDataForTabbar }}"/>

@@ -1,11 +1,21 @@
-.tab-bar {
-    flex-direction: row;
+/**
+  * 带上 jh-前缀 是为了避免冲突
+*/
+.jh-tab-bar {
     flex: 1;
-    display: flex;
     justify-content: space-around;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: #F7F7FA;
+    border-top: 1px solid #D2D2D2;
+    /* 定义在底部 */
+    position: fixed;
+    bottom: 0;
+    left: 0;
 }
 
-.tab-item {
+.jh-tab-item {
     display: inline-block;
     flex-direction: column;
     align-content: center;
@@ -15,14 +25,14 @@
     padding-bottom: 4px;
 }
 
-.tab-content {
+.jh-tab-content {
     display: inline-block;
     flex-direction: column;
     align-content: center;
     justify-content: center;
     position: relative;
 }
-.tab-icon {
+.jh-tab-icon {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,13 +42,13 @@ image {
     width: 24px;
     height: 24px;
 }
-.tab-title {
+.jh-tab-title {
     display: flex;
     font-size: 14px;
     line-height: 18px;
 }
 
-.tab-bubble {
+.jh-tab-bubble {
     background-color: #E64340;
     text-align: center;
     justify-content: flex-start;
@@ -51,7 +61,7 @@ image {
     line-height: 13px;
     border-radius: 8px;
 }
-.tab-count {
+.jh-tab-count {
     color: white;
     font-size: 10px;
 }

@@ -1,61 +1,24 @@
-//index.js
-//获取应用实例
+/** 引入 tabbar 组件的 init函数
+  * init函数封装了 Page函数的所有生命周期函数
+ */
+import {
+    init,
+    setTabbarData
+} from "../template/tabbar";
 
-var app = getApp()
-
-// 生成img文件的目录
-function Img(filename, state) {
-    const IMG_FILES_FOLDER = "../../img/";
-    const SUBFIX = ".png";
-
-    if (state === undefined) {
-        return [
-            IMG_FILES_FOLDER,
-            filename,
-            SUBFIX
-        ].join("");
-    } else {
-        return [
-            IMG_FILES_FOLDER,
-            filename,
-            "-",
-            state,
-            SUBFIX
-        ].join("");
-    }
-}
-
-var page;
-
-Page({
+const UserPageData = {
     data: {
         motto: 'Hello World',
         userInfo: {},
-
-        dataForTabbar: [
-            {
-                iCount: 1, //未读数目
-                sIconUrl: Img("note"), //按钮图标
-                sTitle: "note", //按钮名称
-            },
-            {
-                iCount: 99, //未读数目
-                sIconUrl: Img("home"), //按钮图标
-                sTitle: "home", //按钮名称
-            },
-            {
-                iCount: 0, //未读数目
-                sIconUrl: Img("safari"), //按钮图标
-                sTitle: "safari", //按钮名称
-            },
-        ],
-
     },
-    onLoad: function() {
-        // console.log('onLoad')
-        page = this
-        var that = this
-            //调用应用实例的方法获取全局数据
+
+    /**
+      * 生命周期函数
+    */
+    onLoad() {
+        let that = this
+        let app = getApp()
+
         app.getUserInfo(function(userInfo) {
             //更新数据
             that.setData({
@@ -65,48 +28,40 @@ Page({
     },
 
 
-    //逻辑代码
-    //事件处理函数
-    bindViewTap: function() {
+    /**
+      * 逻辑绑定
+    */
+    bindViewTap() {
         wx.navigateTo({
             url: '../logs/logs'
         })
     },
+};
 
-    onTabItemTap(ev) {
-        let key = ev.currentTarget.dataset.key;
-        setCounts({
-            key
-        });
-    }
-})
+// tabbar 对象的数据
+const tabbarData = [
+    {
+        iCount: 98,                         //未读数目 Integer
+        sIconUrl: "../../img/home.png",     //按钮图标 String
+        sTitle: "home",                     //按钮名称 String
+    },
+    {
+        iCount: 0,
+        sIconUrl: "../../img/safari.png",
+        sTitle: "safari",
+    },
+];
 
-function setCounts( obj ) {
-    let {
-        key
-    } = obj;
-    let {
-        dataForTabbar
-    } = page.data;
+// 另一种添加数据的方式
+tabbarData.push({
+    iCount: 1,
+    sIconUrl: "../../img/note.png",
+    sTitle: "note",
+});
 
-    let data = dataForTabbar.map((item) => {
-        let {
-            iCount,
-            sIconUrl,
-            sTitle
-        } = item;
+// 调用 组件的设置函数，传入数据对象
+setTabbarData(tabbarData);
 
-        if (sTitle === key) {
-            ++iCount;
-        }
-        return {
-            iCount,
-            sIconUrl,
-            sTitle
-        };
-    });
-
-    page.setData({
-        dataForTabbar: data
-    })
-}
+// 调用已经封装好的启动函数 类似于 原生的Page
+// 已经封装所有的接口
+init(UserPageData);

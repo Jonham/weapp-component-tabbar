@@ -1,0 +1,24 @@
+{
+  "name": "weapp-component-tabbar",
+  "version": "0.0.2",
+  "description": "微信小程序自定义组件：带有未读数目的tab按钮",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jonham/weapp-component-tabbar.git"
+  },
+  "keywords": [
+    "WeApp",
+    "MINA",
+    "Wechat"
+  ],
+  "author": "Jonham",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jonham/weapp-component-tabbar/issues"
+  },
+  "homepage": "https://github.com/Jonham/weapp-component-tabbar#readme"
+}
