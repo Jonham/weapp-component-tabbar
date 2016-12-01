@@ -133,12 +133,19 @@ export function init( params ) {
         // 单击tab触发的函数
         onTabbarItemTap(ev) {
             let key = ev.currentTarget.dataset.key;
+            let data = {};
+            this.data.jhDataForTabbar.forEach((item) => {
+                if (item.sTitle === key) {
+                    data = item;
+                }
+            });
 
             if (_Events.tap.length > 0) {
                 _Events.tap.forEach((item) => {
                     let eventData = {
                         key,
-                        eventKey: key
+                        data,
+                        eventKey: key,
                     };
                     item(eventData);
                 });
