@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/canvas/canvas",
     "pages/index/index",
     "pages/logs/logs"
   ],
@@ -7,6 +8,7 @@
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "weapp-component-tabbar",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh": "true"
   }
 }

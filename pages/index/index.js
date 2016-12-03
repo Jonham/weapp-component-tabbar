@@ -27,12 +27,34 @@ const UserPageData = {
             })
         })
     },
+    onReachBottom(ev) {
+        console.log("ReachBottom");
+        this.setData({
+            userInfo : {
+                avatarUrl: this.data.userInfo.avatarUrl,
+                nickName: "ReachBottom"
+            }
+        });
+    },
+    onPullDownRefresh() {
+        this.setData({
+            userInfo : {
+                avatarUrl: this.data.userInfo.avatarUrl,
+                nickName: "PullDown"
+            }
+        });
+        setTimeout(() => {
+            wx.stopPullDownRefresh();
+            console.log("stop");
+        }, 300);
+    },
 
 
     /**
       * 逻辑绑定
     */
     bindViewTap() {
+        console.log("tap");
         wx.navigateTo({
             url: '../logs/logs'
         })
@@ -59,6 +81,7 @@ tabbarData.push({
     sIconUrl: "../../img/note.png",
     sTitle: "note",
 });
+
 
 // 调用 组件的设置函数，传入数据对象
 setTabbarData(tabbarData);

@@ -14,7 +14,7 @@
         其他的页面的元素
      -->
 
- #### index.wxss (页面的 wxss 文件)
+#### index.wxss (页面的 wxss 文件)
 
      /* 引入tabbar的样式 */
      @import "../template/tabbar.wxss";

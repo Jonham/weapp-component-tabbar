@@ -181,7 +181,7 @@ export function setTabbarData( obj ) {
     if (_isPageInited === false) {
         _dataForTabbar = obj;
     } else {
-        page.setData({
+        _page.setData({
             jhDataForTabbar: obj
         });
     }
