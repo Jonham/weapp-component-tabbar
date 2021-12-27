@@ -1,6 +1,5 @@
 {
   "pages":[
-    "pages/canvas/canvas",
     "pages/index/index",
     "pages/logs/logs"
   ],
