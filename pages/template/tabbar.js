@@ -96,7 +96,7 @@ export function init( params ) {
         */
         onLoad() {
             // 调用用户定义的生命周期函数
-            _super.onLoad.bind(this)();
+            _super.onLoad.apply(this, arguments);
 
             // 保存this到_page
             _page = this
