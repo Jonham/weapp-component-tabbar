@@ -17,4 +17,4 @@
 }
 
 /* 引入tabbar的样式 */
-@import "../template/tabbar.wxss";
+@import "../../components/template/tabbar.wxss";

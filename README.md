@@ -6,7 +6,7 @@
 #### index.wxml (页面的 wxml文件中)
 
     <!-- 在需要的页面的头部 引入wxml -->
-    <import src="../template/tabbar.wxml"/>
+    <import src="../../components/template/tabbar.wxml"/>
     <!-- 直接引入 -->
     <template is="tab-bar" data="{{ jhDataForTabbar }}"/>
 
@@ -17,7 +17,7 @@
 #### index.wxss (页面的 wxss 文件)
 
      /* 引入tabbar的样式 */
-     @import "../template/tabbar.wxss";
+     @import "../../components/template/tabbar.wxss";
 
 
 #### index.js (页面的 js 文件)
@@ -27,7 +27,7 @@
        init,                    // 初始化组件及页面
        Tabbar,                  // Tabbar是组件的事件注册中心
        setTabbarData            // 设置/更新 tabbar显示的数据
-    } from "../template/tabbar";
+    } from "../../components/template/tabbar";
 
 ###### 文件内部：调用`init(object)`函数，初始化页面
 

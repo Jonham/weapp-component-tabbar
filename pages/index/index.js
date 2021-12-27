@@ -5,7 +5,7 @@ import {
     init,
     Tabbar,
     setTabbarData
-} from "../template/tabbar";
+} from "../../components/template/tabbar";
 
 const UserPageData = {
     data: {

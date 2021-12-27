@@ -1,5 +1,5 @@
 <!-- 在需要的页面，引入wxml -->
-<import src="../template/tabbar.wxml"/>
+<import src="../../components/template/tabbar.wxml"/>
 
 <!--index.wxml-->
 <view class="container">
