@@ -100,6 +100,7 @@ export function init( params ) {
 
             // 保存this到_page
             _page = this
+            _isPageInited = true;
         },
         onReady() {
             // 调用用户定义的生命周期函数
@@ -166,7 +167,6 @@ export function init( params ) {
     }
 
     Page(initObject);
-    _isPageInited = true;
 
 
 
